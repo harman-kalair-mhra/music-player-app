@@ -122,3 +122,25 @@ function playTrack() {
   // Replaces to pause icon when button clicked
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>'
 }
+
+// Pause track function
+function pauseTrack() {
+  current_track.pause()
+  isPlaying = false
+
+  // Replaces to play icon when button clicked
+  playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>'
+}
+
+// Next track function
+function nextTrack() {
+  // If the current track is the last in the track list
+  // it returns to the beginning.
+  if (track_index < track_list.length - 1)
+    track_index += 1;
+  else track_index = 0;
+  
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();
+}
