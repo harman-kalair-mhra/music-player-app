@@ -19,5 +19,37 @@ let track_index = 0
 let isPlaying = false
 let updateTimer
 
-//audio element
+//Audio element
 let current_track = document.createElement('audio')
+
+// Track list as objects
+// accessed using its track index
+let track_list = [
+    {
+      name: "Gyalchester",
+      artist: "Drake",
+      image: "img/img1.jpg",
+      path: "music/song1.mp3"
+    },
+    {
+      name: "Rolex",
+      artist: "Ayo & Teo",
+      image: "img/img2.jpg",
+      path: "music/song2.mp3"
+    },
+    {
+      name: "Run Up",
+      artist: "Major Lazer",
+      image: "img/img3.jpg",
+      path: "music/song3.mp3",
+    },
+    {
+      name: "Jatt da Muqabala",
+      artist: "Sidhu Mossewala",
+      image: "img/img5.jpg",
+      path: "music/song5.mp3",
+    },
+  ];
+
+ 
+    
