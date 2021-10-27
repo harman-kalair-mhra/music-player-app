@@ -144,3 +144,15 @@ function nextTrack() {
   loadTrack(track_index);
   playTrack();
 }
+
+function prevTrack() {
+  // If the current track is the first in the track list
+  // go back to the last one.
+  if (track_index > 0)
+    track_index -= 1;
+  else track_index = track_list.length - 1;
+    
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();
+}
