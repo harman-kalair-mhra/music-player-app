@@ -74,7 +74,7 @@ let track_list = [
     track_name.textContent = track_list[track_index].name;
     track_artist.textContent = track_list[track_index].artist;
     now_playing.textContent =
-      "PLAYING " + (track_index) + " OF " + track_list.length;
+      "PLAYING " + (track_index + 1) + " OF " + track_list.length;
     
     // Set a 1000 millisecond period for refreshing the seek slider.
     updateTimer = setInterval(seekUpdate, 1000);
@@ -162,14 +162,55 @@ function shuffleTrack() {
             // temp value assigned to index
             let temp = track_index;
             // Random number function
-            // generating between 1 and length of song
+            // generating a random number between 1 and length of song
             temp = Math.floor(Math.random() * track_list.length + 1);
             // debugging purposes
             console.log(temp)
 
             // Load and play the new track
-            loadTrack([temp]);
+            loadTrack(temp);
             playTrack();
   }
+
+  function seekTo() {
+    // Calculate the relative duration of the track by multiplying the seek position 
+    //by the percentage of the seek slider.
+    seekto = current_track.duration * (seek_slider.value / 100);
+    
+    // Setting the current track's seek position to the calculated one
+    current_track.currentTime = seekto;
+    }
+    
+    function setVolume() {
+    // The volume is adjusted based on the percentage of the volume slider that is set.
+    current_track.volume = volume_slider.value / 100;
+    }
+    
+    function seekUpdate() {
+    let seekPosition = 0;
+    
+    // Check if the current track duration is a legible number
+    if (!isNaN(current_track.duration)) {
+      seekPosition = current_track.currentTime * (100 / current_track.duration);
+      seek_slider.value = seekPosition;
+    
+      // Calculate the time left and the total duration
+      let currentMinutes = Math.floor(current_track.currentTime / 60);
+      let currentSeconds = Math.floor(current_track.currentTime - currentMinutes * 60);
+      let durationMinutes = Math.floor(current_track.duration / 60);
+      let durationSeconds = Math.floor(current_track.duration - durationMinutes * 60);
+    
+      // Add a zero to the single digit time values
+      if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+      if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+      if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+      if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+    
+      // Display the updated duration
+      current_time.textContent = currentMinutes + ":" + currentSeconds;
+      total_duration.textContent = durationMinutes + ":" + durationSeconds;
+    }
+    }
+    
 
 
