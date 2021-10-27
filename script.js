@@ -102,7 +102,14 @@ let track_list = [
       
     // Function to reset all values to their default
     function resetValues() {
-      curr_time.textContent = "00:00";
+      current_time.textContent = "00:00";
       total_duration.textContent = "00:00";
       seek_slider.value = 0;
     }
+
+  // Play and Pause track function 
+  // Switch between playing and pausing depending on the current state
+  function playpauseTrack() {
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
