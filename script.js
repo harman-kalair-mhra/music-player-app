@@ -107,9 +107,18 @@ let track_list = [
       seek_slider.value = 0;
     }
 
-  // Play and Pause track function 
+  // Play and Pause track function called
   // Switch between playing and pausing depending on the current state
   function playpauseTrack() {
   if (!isPlaying) playTrack();
   else pauseTrack();
+}
+
+// Play track function
+function playTrack() {
+  current_track.play()
+  isPlaying = true
+
+  // Replaces to pause icon when button clicked
+  playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>'
 }
