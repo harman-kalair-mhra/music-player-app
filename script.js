@@ -211,8 +211,20 @@ function shuffleTrack() {
       total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
     }
+
+    let data = track_list;
     
+	let list = document.getElementById("myList")
+
+  function listSongs() {
+	data.forEach(item => {
+		let li = document.createElement("li");
+    li.innerHTML = item.name + " - " + item.artist
+    list.appendChild(li);
+	console.log(item.name)
+	})}
 // Load the first track in the tracklist
 loadTrack(track_index);
+
 
 

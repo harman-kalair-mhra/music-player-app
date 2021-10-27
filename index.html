@@ -8,13 +8,53 @@
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <!-- Importing custom CSS style file -->
 <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="player">
 
+<!-- <script>
+	let track_list1 = [
+    {
+      name: "Gyalchester",
+      artist: "Drake",
+      image: "img/img1.jpg",
+      path: "music/song1.mp3"
+    },
+    {
+      name: "Rolex",
+      artist: "Ayo & Teo",
+      image: "img/img2.jpg",
+      path: "music/song2.mp3"
+    },
+    {
+      name: "Run Up",
+      artist: "Major Lazer",
+      image: "img/img3.jpg",
+      path: "music/song3.mp3",
+    },
+    {
+      name: "Jatt da Muqabala",
+      artist: "Sidhu Mossewala",
+      image: "img/img5.jpg",
+      path: "music/song5.mp3",
+    },
+  ];
+</script> -->
+</head>
+
+<body>
+
+	<input class="search" type="text" id="myInput" onkeyup="searchSong()" placeholder="Search for names..">
+	
+	<div>
+		<button id="myList" class = "listSongs" type="button" onclick="listSongs()">List of Songs
+			<i class="fas fa-bars"></i>
+		  </button>  
+		
+	</div>
+	
+
+<div class="player">
 	<!-- Section for displaying details -->
 	<div class="details">
-        <!-- e.g. Playing 1 of 6-->
+        <!-- e.g. Playing 1 of 4-->
 	<div class="now-playing">PLAYING x OF y</div>
 	<div class="track-art"></div>
 	<div class="track-name">Track Name</div>
