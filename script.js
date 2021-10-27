@@ -83,5 +83,26 @@ let track_list = [
     // using the 'ended' event
     current_track.addEventListener("ended", nextTrack);
     
+    // Apply a random background color
+    random_bg_color();
     }
     
+    function random_bg_color() {
+      // Get a random number between 64 to 256 to get lighter colors
+      let red = Math.floor(Math.random() * 256) + 64;
+      let green = Math.floor(Math.random() * 256) + 64;
+      let blue = Math.floor(Math.random() * 256) + 64;
+      
+      // Construct a color with the given values
+      let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+      
+      // Setting the background to the new color
+      document.body.style.background = bgColor;
+    }
+      
+    // Function to reset all values to their default
+    function resetValues() {
+      curr_time.textContent = "00:00";
+      total_duration.textContent = "00:00";
+      seek_slider.value = 0;
+    }
