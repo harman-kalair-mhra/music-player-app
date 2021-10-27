@@ -74,7 +74,7 @@ let track_list = [
     track_name.textContent = track_list[track_index].name;
     track_artist.textContent = track_list[track_index].artist;
     now_playing.textContent =
-      "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+      "PLAYING " + (track_index) + " OF " + track_list.length;
     
     // Set a 1000 millisecond period for refreshing the seek slider.
     updateTimer = setInterval(seekUpdate, 1000);
@@ -156,3 +156,20 @@ function prevTrack() {
   loadTrack(track_index);
   playTrack();
 }
+
+// Shuffle Function
+function shuffleTrack() {
+            // temp value assigned to index
+            let temp = track_index;
+            // Random number function
+            // generating between 1 and length of song
+            temp = Math.floor(Math.random() * track_list.length + 1);
+            // debugging purposes
+            console.log(temp)
+
+            // Load and play the new track
+            loadTrack([temp]);
+            playTrack();
+  }
+
+
