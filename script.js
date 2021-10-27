@@ -51,5 +51,37 @@ let track_list = [
     },
   ];
 
- 
+ // Reset function to handle the resetting of the duration value 
+  // and the slider to their initial values before a new track starts
+  function resetValues() {
+    current_time.textContent = "00:00";
+    total_duration.textContent = "00:00";
+    seek_slider.value = 0;
+    }
+
+  function loadTrack(track_index) {
+    // Clear function for resetting the previous seek timer
+    clearInterval(updateTimer);
+    resetValues();
+    
+    // Loading a new track
+    current_track.src = track_list[track_index].path;
+    current_track.load();
+    
+    // Update details of the track
+    track_art.style.backgroundImage =
+      "url(" + track_list[track_index].image + ")";
+    track_name.textContent = track_list[track_index].name;
+    track_artist.textContent = track_list[track_index].artist;
+    now_playing.textContent =
+      "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+    
+    // Set a 1000 millisecond period for refreshing the seek slider.
+    updateTimer = setInterval(seekUpdate, 1000);
+    
+    // Move to the next track if the current finishes playing
+    // using the 'ended' event
+    current_track.addEventListener("ended", nextTrack);
+    
+    }
     
