@@ -1,7 +1,6 @@
 # Music Player
 This is a simple music player user interface made with HTML, CSS, and JavaScript.
 
-![Output](/screenshots/html-css.jpg)
 
 ## Running the player
 
