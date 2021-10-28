@@ -215,16 +215,14 @@ function shuffleTrack() {
     let data = track_list;
     
 	let list = document.getElementById("myList")
-
-  function listSongs() {
-	data.forEach(item => {
-		let li = document.createElement("li");
-    li.innerHTML = item.name + " - " + item.artist
-    list.appendChild(li);
-	console.log(item.name)
-	})}
   
   function openNav() {
+    data.forEach(item => {
+      let li = document.createElement("li");
+      li.innerHTML = item.name + " - " + item.artist
+      list.appendChild(li);
+    console.log(item.name)
+    })
     document.getElementById("mySidebar").style.width = "500px";
     document.getElementById("main").style.marginLeft = "500px";
   }
@@ -232,11 +230,6 @@ function shuffleTrack() {
   function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
-  }
-
-  function multiple() {
-    listSongs()
-    openNav()
   }
 
 // Load the first track in the tracklist
